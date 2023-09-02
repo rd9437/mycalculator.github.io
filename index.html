@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .calculator {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .display {
+            margin-bottom: 10px;
+            
+            padding: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            font-size: 24px;
+            border: 2px solid #ccc;
+        }
+
+        .button-row {
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            width: 70px;
+            height: 50px;
+            margin: 5px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-button {
+           background-color: #FF5733; 
+           color: white; 
+           text-decoration: none; 
+           display: inline-block; 
+           padding: 10px 20px; 
+           border-radius: 50px; 
+           cursor: pointer; 
+        }
+
+        .nav-button:hover {
+           background-color: greenyellow; 
+        }
+      
+        p {
+           color: darkblue;
+        }
+        .bold {
+            font-weight: bold;
+        }
+
+    </style>
+    <title>Simple Calculator by Rudransh Das</title>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display">
+            <input type="text" id="result" readonly>
+        </div>
+      
+        <div class="button-row">
+            <button onclick="clearDisplay()">Clear
+            </button>
+          
+            <button onclick="deleteLastInput()">Delete
+            </button>
+          
+            <button onclick="calculateSquareRoot()">√
+            </button>
+          
+            <button onclick="appendToDisplay('/')">➗
+            </button>
+          
+        </div>
+      
+        <div class="button-row">
+            <button onclick="appendToDisplay('7')">𝟳</button>
+          
+            <button onclick="appendToDisplay('8')">𝟴</button>
+          
+            <button onclick="appendToDisplay('9')">𝟵</button>
+            <button onclick="appendToDisplay('-')">➖</button>
+          
+        </div>
+      
+        <div class="button-row">
+            <button 
+        onclick="appendToDisplay('4')">𝟰</button>
+            
+            <button 
+        onclick="appendToDisplay('5')">𝟱</button>
+            <button 
+        onclick="appendToDisplay('6')">𝟲</button>
+          
+            <button 
+        onclick="appendToDisplay('*')">✖️</button>
+          
+        </div>
+      
+        <div class="button-row">
+            <button 
+        onclick="appendToDisplay('1')">𝟭</button>
+          
+            <button 
+        onclick="appendToDisplay('2')">𝟮</button>
+          
+            <button 
+        onclick="appendToDisplay('3')">𝟯</button>
+          
+            <button 
+        onclick="appendToDisplay('+')">➕</button>
+          
+        </div>
+      
+        <div class="button-row">
+            <button 
+        onclick="appendToDisplay('0')">𝟬</button>
+          
+            <button onclick="appendToDisplay('.')">. 
+        </button>
+            <button onclick="calculateResult()">=</button>
+        </div>
+      
+      <p> <span class="bold">Created by Rudransh Das</span> </p>
+      <a href="https://www.linkedin.com/in/rudranshdas" class="nav-button">
+        <button>About Me</button>
+      </a>
+      <a href="help.html" class="nav-button">
+        <button>help / info</button>
+      </a>
+      
+    </div>
+  
+    <script>
+        const resultDisplay = document.getElementById("result");
+        let currentInput = "";
+
+        function updateDisplay() {
+            resultDisplay.value = currentInput;
+        }
+
+        function appendToDisplay(char) {
+            currentInput += char;
+            updateDisplay();
+        }
+
+        function clearDisplay() {
+            currentInput = "";
+            updateDisplay();
+        }
+
+        function calculateResult() {
+            try {
+                const result = eval(currentInput);
+                currentInput = result.toString();
+                updateDisplay();
+            } catch (error) {
+                currentInput = "Error";
+                updateDisplay();
+            }
+        }
+
+        function calculateSquareRoot() {
+            try {
+                const value = parseFloat(currentInput);
+                if (!isNaN(value)) {
+                    const result = Math.sqrt(value);
+                    currentInput = result.toString();
+                    updateDisplay();
+                } 
+                else {
+                    currentInput = "Error";
+                    updateDisplay();
+                }
+            } 
+            catch (error) {
+                currentInput = "Error";
+                updateDisplay();
+            }
+        }
+
+        function deleteLastInput() {
+            currentInput = currentInput.slice(0, -1); // Remove the last character
+            updateDisplay();
+        }
+
+        updateDisplay();
+    </script>
+</body>
+</html>
