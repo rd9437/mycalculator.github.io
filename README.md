@@ -1,4 +1,4 @@
-# mycalculator
+# My Calculator
 https://rd9437.github.io/mycalculator/
 
 Welcome to our Basic Online Calculator! This calculator allows you to perform simple arithmetic calculations conveniently through your web browser. Below you will find instructions on how to use the calculator:
