@@ -20,6 +20,6 @@ Welcome to our Basic Online Calculator! This calculator allows you to perform si
 **Support**
 If you encounter any issues or have questions regarding the Basic Online Calculator, please don't hesitate to reach out to me.
 
-Thank you for using our Basic Online Calculator! We hope it simplifies your arithmetic tasks.
+Thank you for using my Basic Online Calculator! I hope it simplifies your arithmetic tasks.
 
 https://rd9437.github.io/mycalculator/
